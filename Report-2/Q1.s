@@ -1,6 +1,6 @@
 		GLOBAL main
 		AREA mycode, CODE, READONLY
-pInt	DCD 0x20000002
+pInt		DCD 0x20000002
 		
 main 
 		LDR R0, pInt
