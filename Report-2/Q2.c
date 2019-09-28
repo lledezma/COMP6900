@@ -9,8 +9,8 @@ void flash(int n);
 
 int main()
 {		
-		portF();
-		flash(2);
+	portF();
+	flash(2);
 		
 }
 
@@ -28,9 +28,9 @@ void portF(){
 }
 
 void portC(){
-		SYSCTL_RCGCGPIO_R = 0x08;   //0x400FE608
-		GPIO_PORTC_DIR_R = 0x0E;    //0x40006400
-		GPIO_PORTC_DEN_R = 0x0E;    //0x4000651c
+	SYSCTL_RCGCGPIO_R = 0x08;   //0x400FE608
+	GPIO_PORTC_DIR_R = 0x0E;    //0x40006400
+	GPIO_PORTC_DEN_R = 0x0E;    //0x4000651c
 }
 
 void flash(int n){
@@ -38,11 +38,11 @@ void flash(int n){
 	{
 		for(int y = 1; y <=n; y++)
 		{
-				unsigned char light = 0x10;
-				GPIO_PORTF_DATA_R = light>>x;
-				delay(1000000);
-				GPIO_PORTF_DATA_R = 0x00;
-				delay(1000000);
+			unsigned char light = 0x10;
+			GPIO_PORTF_DATA_R = light>>x;
+			delay(1000000);
+			GPIO_PORTF_DATA_R = 0x00;
+			delay(1000000);
 		}
 	}	
 }
