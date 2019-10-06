@@ -29,7 +29,7 @@ void portF(){
 
 void portC(){
 	SYSCTL_RCGCGPIO_R = 0x08;   
-	GPIO_PORTC_DIR_R = 0x0E;    
+	GPIO_PORTC_DIR_R = 0x0F;    
 	GPIO_PORTC_DEN_R = 0x0E;    
 }
 
