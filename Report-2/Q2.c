@@ -39,9 +39,9 @@ void flash(int n){
 		for(int y = 1; y <=n; y++)
 		{
 			unsigned char light = 0x10;
-			GPIO_PORTF_DATA_R = light>>x;
+			GPIO_PORTF_DATA_R = light>>x; //shifts binary light by x places which activates pins 3,2,1 in that other. 
 			delay(1000000);
-			GPIO_PORTF_DATA_R = 0x00;
+			GPIO_PORTF_DATA_R = 0x00; //turns off LED
 			delay(1000000);
 		}
 	}	
