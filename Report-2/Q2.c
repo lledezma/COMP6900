@@ -22,9 +22,9 @@ void delay (int tm){
 
 void portF(){
     
-    SYSCTL_RCGCGPIO_R = 0x20U;
-    GPIO_PORTF_DIR_R = 0x0E;
-    GPIO_PORTF_DEN_R = 0x0E;
+    SYSCTL_RCGCGPIO_R = 0x20U; // 0010 0000, activating the sixth bit to Enable clock to GPIO Port F in Run mode,
+    GPIO_PORTF_DIR_R = 0x0E; // 0000 1110, PIN directions Set the 2nd, 3rd, 4th bits (Pins 1, 2, 3 of Port F), 
+    GPIO_PORTF_DEN_R = 0x0E; // 0000 1110, enable digital function for the pins
 }
 
 void portC(){
