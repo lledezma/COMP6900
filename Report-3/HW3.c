@@ -29,8 +29,8 @@ int main(){
 
 		 while (1){
 			data = PortA_Input();
-        // PortA_Output (data);						//	Q2
-            PortA_Output3 (data);							//Q3-a
+        		// PortA_Output (data);						//	Q2
+            		PortA_Output3 (data);						//Q3-a
 
             data2 = PortE_Input();					//Q4-A
             PortA_Output4 (data2);					//Q4-A
