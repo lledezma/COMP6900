@@ -25,15 +25,15 @@ int main(){
 		uint32_t data;
 
 		PortE_Init();
-        uint32_t data2;
+        	uint32_t data2;
 
 		 while (1){
 			data = PortA_Input();
         		// PortA_Output (data);						//	Q2
             		PortA_Output3 (data);						//Q3-a
 
-            data2 = PortE_Input();					//Q4-A
-            PortA_Output4 (data2);					//Q4-A
+            		data2 = PortE_Input();					//Q4-A
+            		PortA_Output4 (data2);					//Q4-A
 
 		}
  return 0;
@@ -71,8 +71,8 @@ uint32_t PortA_Input(void){
 
 void PortA_Output(uint32_t Input){
 
-		GPIO_PORTA_DATA_R = Input>>3; // right shift the input 0010 0000 (switch input location) by 3 bits resulting in 0000 0100 	GREEN
-		GPIO_PORTA_DATA_R = Input>>2; // right shift the input 0010 0000 (switch input location) by 2 bits resulting in 0000 1000   YELLOW
+    GPIO_PORTA_DATA_R = Input>>3; // right shift the input 0010 0000 (switch input location) by 3 bits resulting in 0000 0100 	GREEN
+    GPIO_PORTA_DATA_R = Input>>2; // right shift the input 0010 0000 (switch input location) by 2 bits resulting in 0000 1000   YELLOW
     GPIO_PORTA_DATA_R = Input>>1; // right shift the input 0010 0000 (switch input location) by 1 bits resulting in 0001 0000		RED
 
     GPIO_PORTE_DATA_R = Input>>3; // right shift the input 0010 0000 (switch input location) by 3 bits resulting in 0000 0100  	GREEN
@@ -84,20 +84,20 @@ void PortA_Output(uint32_t Input){
 void PortA_Output3(uint32_t Input){
 	if(Input)
 	{
-			for(int x = 0; x <1; x++)
-			{
+	    for(int x = 0; x <1; x++)
+	     {
 
-								GPIO_PORTA_DATA_R = 0x10; //NORTH-RED
+		GPIO_PORTA_DATA_R = 0x10; //NORTH-RED
                 GPIO_PORTE_DATA_R = 0x04; // EAST-GREEN
                 delay(10000000);
 
-								GPIO_PORTA_DATA_R = 0x10 ;	//NORTH-Y
-								GPIO_PORTE_DATA_R = 0x08; 	//East-G
+		GPIO_PORTA_DATA_R = 0x10 ;	//NORTH-Y
+		GPIO_PORTE_DATA_R = 0x08; 	//East-G
                 delay(10000000);
 
                 GPIO_PORTA_DATA_R = 0x04;	//NORTH-G
                 GPIO_PORTE_DATA_R = 0x10; 	//EAST-R
-								delay(10000000);
+		delay(10000000);
 
                 GPIO_PORTA_DATA_R = 0x08;	//NORTH-Y
                 GPIO_PORTE_DATA_R = 0x10; 	//EAST-R
@@ -121,14 +121,14 @@ void PortA_Output4(uint32_t Input)
 	{
 		while(1)
 		{
-						GPIO_PORTA_DATA_R = 0x08; //NORTH YELLOW
-						GPIO_PORTE_DATA_R = 0x10; //EAST RED
-            delay(1000000);
-            GPIO_PORTA_DATA_R = 0x00; //NORTH YELLOW
-						GPIO_PORTE_DATA_R = 0x00; //EAST RED
-            delay(1000000);
+			GPIO_PORTA_DATA_R = 0x08; //NORTH YELLOW
+			GPIO_PORTE_DATA_R = 0x10; //EAST RED
+            		delay(1000000);
+            		GPIO_PORTA_DATA_R = 0x00; //NORTH YELLOW
+			GPIO_PORTE_DATA_R = 0x00; //EAST RED
+            		delay(1000000);
 		}
-  }
+  	}
 }
 uint32_t PortE_Input(void){
 		uint32_t data2 = GPIO_PORTE_DATA_R & 0x20;
