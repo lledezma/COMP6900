@@ -68,23 +68,17 @@ uint32_t PortA_Input(void){
 		uint32_t data = GPIO_PORTA_DATA_R & 0x20;
 		 return (data);
 }
-
-void PortA_Output(uint32_t Input){
-
-    GPIO_PORTA_DATA_R = Input>>3; // right shift the input 0010 0000 (switch input location) by 3 bits resulting in 0000 0100 	GREEN
-    GPIO_PORTA_DATA_R = Input>>2; // right shift the input 0010 0000 (switch input location) by 2 bits resulting in 0000 1000   YELLOW
-    GPIO_PORTA_DATA_R = Input>>1; // right shift the input 0010 0000 (switch input location) by 1 bits resulting in 0001 0000		RED
-
-    GPIO_PORTE_DATA_R = Input>>3; // right shift the input 0010 0000 (switch input location) by 3 bits resulting in 0000 0100  	GREEN
-    GPIO_PORTE_DATA_R = Input>>2; // right shift the input 0010 0000 (switch input location) by 2 bits resulting in 0000 1000		YELLOW
-    GPIO_PORTE_DATA_R = Input>>1; // right shift the input 0010 0000 (switch input location) by 1 bits resulting in 0001 0000		RED
-
+uint32_t PortE_Input(void){
+		uint32_t data2 = GPIO_PORTE_DATA_R & 0x20;
+		 return (data2);
 }
+
+
 
 void PortA_Output3(uint32_t Input){
 	if(Input)
 	{
-	    for(int x = 0; x <1; x++)
+	    While(1)
 	     {
 
 		GPIO_PORTA_DATA_R = 0x10; //NORTH-RED
@@ -130,13 +124,22 @@ void PortA_Output4(uint32_t Input)
 		}
   	}
 }
-uint32_t PortE_Input(void){
-		uint32_t data2 = GPIO_PORTE_DATA_R & 0x20;
-		 return (data2);
-}
+
 
 void delay (int tm){
 	int cnt =0;
 	while (cnt<tm)
 	++cnt;
+}
+
+void PortA_Output(uint32_t Input){
+
+    GPIO_PORTA_DATA_R = Input>>3; // right shift the input 0010 0000 (switch input location) by 3 bits resulting in 0000 0100 	GREEN
+    GPIO_PORTA_DATA_R = Input>>2; // right shift the input 0010 0000 (switch input location) by 2 bits resulting in 0000 1000   YELLOW
+    GPIO_PORTA_DATA_R = Input>>1; // right shift the input 0010 0000 (switch input location) by 1 bits resulting in 0001 0000		RED
+
+    GPIO_PORTE_DATA_R = Input>>3; // right shift the input 0010 0000 (switch input location) by 3 bits resulting in 0000 0100  	GREEN
+    GPIO_PORTE_DATA_R = Input>>2; // right shift the input 0010 0000 (switch input location) by 2 bits resulting in 0000 1000		YELLOW
+    GPIO_PORTE_DATA_R = Input>>1; // right shift the input 0010 0000 (switch input location) by 1 bits resulting in 0001 0000		RED
+
 }
