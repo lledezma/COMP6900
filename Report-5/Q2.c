@@ -21,7 +21,7 @@ void delay(uint32_t waitTime);
 void PortE_Init(void);  
 void PortB_Init(void);
 uint32_t PortE_Input(void);
-void SysTick_Init(void);  //This one is ok;
+void SysTick_Init(void);  
 int main(void){
 	PortB_Init();
 	PortE_Init();
