@@ -113,9 +113,10 @@ int main(void)
 										message = false;
 										break;
 									}
-									else
+                                    else{
 										printString("\n \r");
 										printString("Insert money... \n \r");
+                                    }
 							}
 							if(tamount >= tprice){
 								finalvalue = (tamount - tprice) ;
