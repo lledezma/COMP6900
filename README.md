@@ -1,2 +1,2 @@
 # COMP6900
-reports
+Embedded Systems Programming files and reports.
